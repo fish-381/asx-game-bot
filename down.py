@@ -28,11 +28,13 @@ def parse_date(date_str):
 def read_company_names():
     company_names = {}
     with open(companies_file, 'r') as file:
-        reader = csv.reader(file)
-        next(reader)  # Skip header row
+        reader = csv.reader(file, delimiter=',', quotechar='"')
         for row in reader:
-            company_names[row[0]] = row[1]
+            if len(row) == 2:
+                print(f"Reading company code: {row[0]}, Company name: {row[1]}")
+                company_names[row[0]] = row[1]
     return company_names
+
 
 # Function to calculate percentage decrease
 def calculate_percentage_decrease(old_price, new_price):
