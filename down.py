@@ -1,6 +1,5 @@
 from datetime import datetime
 import tkinter as tk
-from tkinter import ttk  # Optional for themed widgets
 import csv
 import os
 import matplotlib.pyplot as plt
