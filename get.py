@@ -1,6 +1,6 @@
 import os
 import yfinance as yf
-import pandas as pd
+import csv
 from datetime import datetime
 
 def fetch_stock_data(stock_code):
@@ -18,17 +18,24 @@ def save_stock_data(stock_code, data):
 
         # If file exists, check if dates match. If yes, don't save new data.
         if os.path.exists(filename):
-            existing_data = pd.read_csv(filename, index_col='date')
-            if existing_data.index.isin(data.index).all():  # Check if all dates in new data are already in existing data
+            existing_dates = set()
+            with open(filename, 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    existing_dates.add(row['date'])
+
+            if set(data.index.strftime('%Y-%m-%d')).issubset(existing_dates):
                 print(f"All dates in {stock_code} data already present. Keeping file unchanged.")
                 return
-            else:
-                # Dates don't match completely, proceed with appending new data
-                data = pd.concat([existing_data, data]).drop_duplicates(keep='last')
-                data = data.dropna(how='all')
 
-        data.to_csv(filename, columns=['Close'], header=['price'], index_label='date')
-        print(f"Saved data for {stock_code} to {filename}")
+        with open(filename, 'a', newline='') as f:
+            writer = csv.writer(f)
+            if not os.path.exists(filename) or os.stat(filename).st_size == 0:
+                writer.writerow(['date', 'price'])
+            for date, price in data['Close'].items():  # Use items() instead of iteritems()
+                writer.writerow([date.strftime('%Y-%m-%d'), price])
+
+        print(f"Appended data for {stock_code} to {filename}")
 
 def update_stock_data():
     data_directory = "data"

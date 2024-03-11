@@ -23,7 +23,7 @@ for folder in os.listdir(data_dir):
 
                 # Write the target header row
                 writer.writerow(['date', 'price'])
-                writer.writerow(['2024-02-29 00:00:00+11:00,',])
+                
 
             print(f"Rewritten {data_file} to target format")
 
