@@ -6,7 +6,7 @@ from datetime import datetime
 def fetch_stock_data(stock_code):
     try:
         stock = yf.Ticker(f"{stock_code}.AX")  # Append ".AX" for ASX listings
-        data = stock.history(period="1d")
+        data = stock.history(period="7d")
         return data
     except Exception as e:
         print(f"Error fetching data for {stock_code}: {e}")
