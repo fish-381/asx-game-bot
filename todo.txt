@@ -1,5 +1,5 @@
 fix main
-fix get to append with OS rather than panda 
+fix get to append with OS rather than panda - fix maybe?
 make a geneal/ overview dash board with how much is invested 
 make a like stocks system
 make a README
