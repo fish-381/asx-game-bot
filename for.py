@@ -1,8 +1,6 @@
 import os
 import csv
 
-import os
-
 # Specify the data directory path (modify as needed)
 data_dir = "data"
 
