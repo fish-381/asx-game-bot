@@ -1,6 +1,6 @@
 fix main
-fix get to append with OS rather than panda - fix maybe?
+fix get to append with OS rather than panda - fix maybe? - big yes to working
 make a geneal/ overview dash board with how much is invested 
 make a like stocks system
 make a README
-make requirements.txt - trying - not working well at all 
+make requirements.txt - trying 
