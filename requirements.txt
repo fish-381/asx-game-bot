@@ -1,5 +1,5 @@
 datetime
 tkinter
-matplotlib
-yfinance
+matplotlib==3.5.1
+yfinance==0.2.37
 csv
