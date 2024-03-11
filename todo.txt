@@ -1,4 +1,4 @@
-fix main
+fix main - started
 fix get to append with OS rather than panda - fix maybe? - big yes to working
 make a geneal/ overview dash board with how much is invested 
 make a like stocks system - started still not working with backend
