@@ -1,0 +1,6 @@
+fix main
+fix get to append with OS rather than panda 
+make a geneal/ overview dash board with how much is invested 
+make a like stocks system
+make a README
+make requirements.txt 
