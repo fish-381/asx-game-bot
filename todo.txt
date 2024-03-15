@@ -4,3 +4,7 @@ make a geneal/ overview dash board with how much is invested
 make a like stocks system - started still not working with backend - pri
 make a README - started 
 make requirements.txt - trying -getting better
+
+try find a way to make an ango 
+look over more days 
+get end cost and add to output.txt
