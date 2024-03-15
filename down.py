@@ -93,7 +93,7 @@ with open(output_file, 'w') as output:
                                 # Calculate percentage decrease
                                 percentage_decrease = calculate_percentage_decrease(older_price, latest_price)
                                 # Write to output file
-                                output_line = f"Folder: {company_code} ({company_name}), Percentage Decrease: {percentage_decrease:.2f}%\n"
+                                output_line = f"Folder: {company_code} ({company_name}), Percentage Decrease: {percentage_decrease:.2f}%, Last Cost: {latest_price}\n"
                                 output.write(output_line)
 
                 except (IOError, csv.Error) as e:

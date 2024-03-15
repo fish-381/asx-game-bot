@@ -7,4 +7,4 @@ make requirements.txt - trying -getting better
 
 try find a way to make an ango 
 look over more days 
-get end cost and add to output.txt
+get end cost and add to output.txt - added 
