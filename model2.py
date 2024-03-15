@@ -118,6 +118,16 @@ def analyze_portfolio(portfolio, stock_data):
     print("\nPortfolio Metrics:")
     print(f"Total Portfolio Value: ${total_value:.2f}")
 
+    # Check if any stock quantity exceeds a certain threshold and suggest selling
+    sell_threshold = 100  # Example threshold, adjust as needed
+    stocks_to_sell = [symbol for symbol, quantity in portfolio.items() if quantity > sell_threshold]
+    if stocks_to_sell:
+        print("\nSuggestions:")
+        for symbol in stocks_to_sell:
+            print(f"Suggestion: Consider selling some shares of {symbol}. Quantity held: {portfolio[symbol]}")
+    else:
+        print("No suggestions to sell.")
+
     # Perform additional analysis or visualization as needed
 
 if __name__ == "__main__":
