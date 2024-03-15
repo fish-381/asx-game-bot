@@ -5,6 +5,6 @@ make a like stocks system - started still not working with backend - pri
 make a README - started 
 make requirements.txt - trying -getting better
 
-try find a way to make an ango 
-look over more days 
+try find a way to make an ango - strongly trying
+look over more days - trying
 get end cost and add to output.txt - done
