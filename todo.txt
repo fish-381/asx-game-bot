@@ -1,9 +1,7 @@
 fix main - need to add the new items and have tooltips 
 = get.py is working as intended - want to add a kill switch if running more than once 
 make a general/ overview dashboard with how much is invested - done in model2.py 
-make a like stocks system - discontinuing this for portfolio 
-make a README - ongoing - added wakatime 
-make requirements.txt - deprecated 
+make a README - ongoing - added wakatime = done
 
 try find a way to make an ango - strongly trying - model2.py
-look over more days - trying -use model2.py
+look over more days - trying -use model2.py = model2 with AI give up 
