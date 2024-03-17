@@ -1,7 +1,5 @@
-fix main - need to add the new items and have tooltips 
+fix main - need to add the new items and have tooltips - soon later on list
 = get.py is working as intended - want to add a kill switch if running more than once 
 make a general/ overview dashboard with how much is invested - done in model2.py 
-make a README - ongoing - added wakatime = done
-
-try find a way to make an ango - strongly trying - model2.py
+try find a way to make an ango - strongly trying - model2.py and more on model.py - finding more to add then will try to make a sum to export to file as overview.txt
 look over more days - trying -use model2.py = model2 with AI give up 
