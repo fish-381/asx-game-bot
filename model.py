@@ -46,6 +46,9 @@ def preprocess_data(data):
     # Calculate returns
     data['returns'] = data['price'].pct_change()
 
+    # Reset index to ensure it's unique
+    data.reset_index(inplace=True)
+
     # Print summary statistics
     print("\nSummary Statistics after preprocessing:")
     print(data.describe())
