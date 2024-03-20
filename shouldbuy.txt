@@ -40,5 +40,8 @@ WES
 WTC
 XRO
 
-Value at Risk (VaR) at 95.0% confidence level: $68.16
-Conditional Value at Risk (CVaR) at 95.0% confidence level: $0.82
+Portfolio Metrics:
+Total Portfolio Value: $33052.60
+
+Value at Risk (VaR) at 95.0% confidence level: $72.09
+Conditional Value at Risk (CVaR) at 95.0% confidence level: $11.88
