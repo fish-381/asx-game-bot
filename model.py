@@ -147,7 +147,7 @@ def analyze_portfolio(portfolio, stock_data):
 
         # Calculate CVaR and write to file
         cvar = portfolio_returns[portfolio_returns <= var].mean()
-        with open("cvar_analysis.txt", "w") as cvar_file:
+        with open("var_analysis.txt", "a") as cvar_file:
             cvar_file.write(f"\nConditional Value at Risk (CVaR) at {(1 - alpha) * 100}% confidence level: ${cvar:.2f}\n")
 
     except ImportError:
