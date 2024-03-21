@@ -1,4 +1,3 @@
-Stocks to consider investing in:
 ACDC
 ALU
 ASX
@@ -39,9 +38,4 @@ VVLU
 WES
 WTC
 XRO
-
-Portfolio Metrics:
-Total Portfolio Value: $33052.60
-
-Value at Risk (VaR) at 95.0% confidence level: $72.09
-Conditional Value at Risk (CVaR) at 95.0% confidence level: $11.88
+Stocks to consider investing in:

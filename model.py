@@ -28,6 +28,7 @@ def load_data(data_dir):
 
     return stock_data
 
+
 def preprocess_data(data):
     """
     Preprocesses data including calculating returns.
@@ -49,9 +50,10 @@ def preprocess_data(data):
     # Reset index to ensure it's unique
     data.reset_index(inplace=True)
 
-    # Print summary statistics
-    print("\nSummary Statistics after preprocessing:")
-    print(data.describe())
+    # Print summary statistics (writing to a file)
+    with open("summary_stats.txt", "w") as summary_file:
+        summary_file.write("\nSummary Statistics after preprocessing:\n")
+        summary_file.write(str(data.describe()))
 
     # Feature engineering (add relevant indicators)
     # ... (consider technical indicators, fundamental analysis, etc.)
@@ -70,19 +72,20 @@ def analyze_data(stock_data):
 
     invest_stocks = []  # List to store stocks to invest in
 
-    for stock_symbol, data in stock_data.items():
-        # Perform analysis for each stock
-        # Example: Check if the stock meets certain criteria for investment
-        if data['price'].mean() > 50 and data['price'].std() < 10:
-            invest_stocks.append(stock_symbol)
+    with open("shouldbuy.txt", "w") as recommendations_file:
+        for stock_symbol, data in stock_data.items():
+            # Perform analysis for each stock
+            # Example: Check if the stock meets certain criteria for investment
+            if data['price'].mean() > 50 and data['price'].std() < 10:
+                invest_stocks.append(stock_symbol)
+                recommendations_file.write(f"{stock_symbol}\n")
 
-    # Print stocks to consider investing in
-    if invest_stocks:
-        print("Stocks to consider investing in:")
-        for stock_symbol in invest_stocks:
-            print(stock_symbol)
-    else:
-        print("No stocks meet the investment criteria.")
+        # Print stocks to consider investing in (writing to file)
+        if invest_stocks:
+            recommendations_file.write("Stocks to consider investing in:\n")
+        else:
+            recommendations_file.write("No stocks meet the investment criteria.\n")
+
 
 def load_portfolio(file_path):
     """
@@ -94,14 +97,14 @@ def load_portfolio(file_path):
     Returns:
         dict: A dictionary where keys are stock symbols and values are the quantity held.
     """
+
     try:
         with open(file_path, 'r') as file:
             portfolio = json.load(file)
-        return portfolio
+            return portfolio
     except FileNotFoundError:
         print(f"Error: Portfolio file '{file_path}' not found.")
         return {}
-
 def analyze_portfolio(portfolio, stock_data):
     """
     Analyzes the user's portfolio in relation to the stock data.
@@ -110,6 +113,7 @@ def analyze_portfolio(portfolio, stock_data):
         portfolio (dict): Dictionary containing the user's portfolio holdings.
         stock_data (dict): Dictionary containing preprocessed data for each stock.
     """
+
     if not portfolio:
         print("No portfolio data available.")
         return
@@ -121,9 +125,10 @@ def analyze_portfolio(portfolio, stock_data):
             stock_price = stock_data[symbol]['price'].iloc[-1]  # Get the latest price
             total_value += stock_price * quantity
 
-    # Print portfolio metrics
-    print("\nPortfolio Metrics:")
-    print(f"Total Portfolio Value: ${total_value:.2f}")
+    # Write portfolio metrics to a file
+    with open("portfolio_metrics.txt", "w") as metrics_file:
+        metrics_file.write("\nPortfolio Metrics:\n")
+        metrics_file.write(f"Total Portfolio Value: ${total_value:.2f}\n")
 
     try:
         from scipy.stats import norm  # Assuming a normal distribution for simplicity
@@ -135,25 +140,31 @@ def analyze_portfolio(portfolio, stock_data):
             if symbol in stock_data:
                 portfolio_returns += quantity * stock_data[symbol]['returns']
 
-        # Calculate VaR
+        # Calculate VaR and write to file
         var = -norm.ppf(alpha) * portfolio_returns.std()
-        print(f"\nValue at Risk (VaR) at {(1 - alpha) * 100}% confidence level: ${var:.2f}")
+        with open("var_analysis.txt", "w") as var_file:
+            var_file.write(f"\nValue at Risk (VaR) at {(1 - alpha) * 100}% confidence level: ${var:.2f}\n")
 
-        # Calculate CVaR using the historical method
+        # Calculate CVaR and write to file
         cvar = portfolio_returns[portfolio_returns <= var].mean()
-        print(f"Conditional Value at Risk (CVaR) at {(1 - alpha) * 100}% confidence level: ${cvar:.2f}")
+        with open("cvar_analysis.txt", "w") as cvar_file:
+            cvar_file.write(f"\nConditional Value at Risk (CVaR) at {(1 - alpha) * 100}% confidence level: ${cvar:.2f}\n")
+
     except ImportError:
         print("Note: SciPy is required for VaR and CVaR calculations.")
 
-    # Check if any stock quantity exceeds a certain threshold and suggest selling
+    # Check if any stock quantity exceeds a threshold and suggest selling
     sell_threshold = 100  # Example threshold, adjust as needed
     stocks_to_sell = [symbol for symbol, quantity in portfolio.items() if quantity > sell_threshold]
-    if stocks_to_sell:
-        print("\nSuggestions:")
-        for symbol in stocks_to_sell:
-            print(f"Suggestion: Consider selling some shares of {symbol}. Quantity held: {portfolio[symbol]}")
-    else:
-        print("No suggestions to sell.")
+
+    # Write suggestions to file
+    with open("portfolio_suggestions.txt", "w") as suggestions_file:
+        if stocks_to_sell:
+            suggestions_file.write("\nSuggestions:\n")
+            for symbol in stocks_to_sell:
+                suggestions_file.write(f"Suggestion: Consider selling some shares of {symbol}. Quantity held: {portfolio[symbol]}\n")
+        else:
+            suggestions_file.write("No suggestions to sell.")
 
     # Perform additional analysis or visualization as needed
 

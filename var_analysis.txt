@@ -1,0 +1,2 @@
+
+Value at Risk (VaR) at 95.0% confidence level: $72.09
