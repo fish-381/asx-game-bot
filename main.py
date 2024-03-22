@@ -14,7 +14,7 @@ def run_script(script_name, desc):
             print(f"Error: Script '{script_name}' failed with exit code {e.returncode}.")
 
 if __name__ == "__main__":
-    scripts = ["get.py", "down.py", "mode.py"]
+    scripts = ["get.py", "down.py", "model.py"]
     for script in scripts:
         run_script(script, desc=script)  # Run each script with a progress bar
 
