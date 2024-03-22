@@ -1,0 +1,2 @@
+# Ignore .env files containing sensitive information such as credentials
+.env
