@@ -50,6 +50,8 @@ Folder: EDV (Unknown), Percentage Decrease: 0.94%, Last Cost: 5.269999980926514
 Folder: ELD (Unknown), Percentage Decrease: 1.89%, Last Cost: 8.819999694824219
 Folder: EMR (Unknown), Percentage Decrease: 2.28%, Last Cost: 2.7899999618530273
 Folder: ESPO (Unknown), Percentage Decrease: 0.08%, Last Cost: 11.979999542236328
+Folder: ETPMAG (Unknown), Percentage Decrease: 2.82%, Last Cost: 34.86000061035156
+Folder: ETPMPT (Unknown), Percentage Decrease: 0.02%, Last Cost: 128.6300048828125
 Folder: EVN (Unknown), Percentage Decrease: 0.29%, Last Cost: 3.430000066757202
 Folder: FBU (Unknown), Percentage Decrease: 1.05%, Last Cost: 3.765000104904175
 Folder: FLT (Unknown), Percentage Decrease: 1.12%, Last Cost: 21.139999389648438
