@@ -1,4 +1,4 @@
 
-Value at Risk (VaR) at 95.0% confidence level: $56.56
+Value at Risk (VaR) at 95.0% confidence level: $56.94
 
-Conditional Value at Risk (CVaR) at 95.0% confidence level: $3.42
+Conditional Value at Risk (CVaR) at 95.0% confidence level: $1.36
